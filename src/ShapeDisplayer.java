@@ -1,8 +1,5 @@
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.awt.*;
 public class ShapeDisplayer extends JFrame{
 
@@ -11,6 +8,7 @@ public class ShapeDisplayer extends JFrame{
 	public static void main(String [] args) {
 		new ShapeDisplayer();
 	}
+
  public ShapeDisplayer() {
 	JFrame frame = new JFrame("Shape Displayer");
 	JLabel buttonsLabel = new JLabel();
@@ -19,7 +17,7 @@ public class ShapeDisplayer extends JFrame{
 	panelButtons.setBackground(Color.blue);
 	panel.setBackground(Color.yellow);
 	JButton carButton = new JButton();
-	carButton.setIcon(new CarShape(0,0,50));
+	carButton.setIcon(new CarShape(20,20,50));
 	carButton.setPreferredSize(new Dimension(90,70));
 	carButton.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent event) {
@@ -28,7 +26,6 @@ public class ShapeDisplayer extends JFrame{
 			
 		}
 	});
-	
 	panel.addMouseListener(new MouseListener() {
 
 		@Override
@@ -70,7 +67,14 @@ public class ShapeDisplayer extends JFrame{
 	
 	JButton snowButton = new JButton();
 	snowButton.setPreferredSize(new Dimension(90,70));
-	
+	snowButton.setIcon(new SnowmanShape(40,20,50));
+	snowButton.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent event) {
+		
+			shape = new SnowmanShape(x,y,50);
+			
+		}
+	});
 	
 	JButton compShapeButton = new JButton();
 	compShapeButton.setPreferredSize(new Dimension(90,70));
