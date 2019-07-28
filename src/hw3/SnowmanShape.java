@@ -1,3 +1,4 @@
+package hw3;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -7,8 +8,12 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-
-public class SnowmanShape implements ShapeIcon ,CompositeShape{
+/**
+ * 
+ * @author Nada ElZeini
+ *class that represents a snowman shape
+ */
+public class SnowmanShape implements CompositeShape{
 
 	private int x;
 	private int y;
@@ -22,8 +27,8 @@ public class SnowmanShape implements ShapeIcon ,CompositeShape{
 	@Override
 	public void draw(Graphics2D g2) {
 	
-		Ellipse2D.Double top = new Ellipse2D.Double(x,y,10,10);
-		Ellipse2D.Double bot = new Ellipse2D.Double(x,y+10,10,10);
+		Ellipse2D.Double top = new Ellipse2D.Double(x,y,width,width);
+		Ellipse2D.Double bot = new Ellipse2D.Double(x,y+width,width,width);
 		g2.draw(top);
 		
 		g2.draw(bot);
@@ -41,21 +46,19 @@ public class SnowmanShape implements ShapeIcon ,CompositeShape{
 		this.y=y;
 		
 	}
+	@Override
+	public int getX() {
+		return x;
+	}
+
 
 	@Override
-	public void paintIcon(Component c, Graphics g, int x, int y) {
+	public int getY() {
+		return y;
+	}
+	@Override
+	public int getSize() {
 		
-		Graphics2D g2 = (Graphics2D)g;
-		this.draw(g2);
-	}
-
-	@Override
-	public int getIconWidth() {
-		return width;
-	}
-
-	@Override
-	public int getIconHeight() {
 		return width;
 	}
 

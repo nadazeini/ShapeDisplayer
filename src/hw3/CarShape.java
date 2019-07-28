@@ -1,9 +1,17 @@
+package hw3;
 
 
 import javax.swing.*;
+
+
 import java.awt.*;
 import java.awt.geom.*;
-public class CarShape  implements ShapeIcon , CompositeShape {
+/**
+ * 
+ * @author Author of the CS151 book (Cay Hortsman)
+ * class that represents a car shape
+ */
+public class CarShape  implements CompositeShape {
 
 	private int x;
 	private int y;
@@ -14,23 +22,12 @@ public class CarShape  implements ShapeIcon , CompositeShape {
 		this.y=y;
 		this.width=width;
 	}
-	@Override
-	public void paintIcon(Component c, Graphics g, int x, int y) {
 
-		Graphics2D g2 = (Graphics2D)g;
-		this.draw(g2);
-		
-	}
-	@Override
-	public int getIconWidth() {
-	return width;
-	}
-	@Override
-	public int getIconHeight() {
-		return width;
-	}
-	@Override
+	/**
+	 * drawing method
+	 */
 	public void draw(Graphics2D g2) {
+		
 		Rectangle2D body = new Rectangle2D.Double(x, y+width/6, width-1, width/6);
 		Ellipse2D.Double frontTire = new Ellipse2D.Double(x + width / 6, y + width / 3, width / 6, width / 6); 
 		Ellipse2D.Double rearTire = new Ellipse2D.Double(x + width * 2 / 3, y + width / 3,width / 6, width / 6); 
@@ -53,12 +50,10 @@ public class CarShape  implements ShapeIcon , CompositeShape {
 		g2. draw( rearWindshield) ;
 		
 	}
-	@Override
 	public void setX(int x) {
-		// TODO Auto-generated method stub
+		
 		this.x=x;
 	}
-	@Override
 	public void setY(int y) {
 	this.y=y;
 		
@@ -66,5 +61,25 @@ public class CarShape  implements ShapeIcon , CompositeShape {
 
 	
 }
+
+
+	@Override
+	public int getX() {
+		return x;
+	}
+
+
+	@Override
+	public int getY() {
+		return y;
+	}
+
+
+	@Override
+	public int getSize() {
+	return width;
+	}
+
+
 }
 
